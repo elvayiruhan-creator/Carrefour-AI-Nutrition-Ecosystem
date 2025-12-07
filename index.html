@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Carrefour GreenMeal – Plan 7 meals in 7 seconds with AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Plan 7 meals in 7 seconds with AI, get an automatic shopping list and save up to €400/year with Carrefour GreenMeal."
+  />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --green-dark: #064e3b;
+      --green: #16a34a;
+      --green-soft: #dcfce7;
+      --cream: #f5f5f0;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --accent: #22c55e;
+      --radius-lg: 1.5rem;
+      --shadow-soft: 0 24px 60px rgba(15, 118, 110, 0.14);
+      --border-subtle: #e5e7eb;
+
+      --cta-start: #facc15;
+      --cta-end: #f97316;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background: radial-gradient(circle at top left, #ecfdf5, #f9fafb);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 4.5rem 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 3vw, 2.25rem);
+      margin-bottom: 1.5rem;
+    }
+
+    p.lead {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 100%;
+    }
+
+    /* NAVIGATION */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(245, 245, 240, 0.92);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--green-dark);
+      font-size: 1.05rem;
+    }
+
+    .logo-img {
+      height: 30px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      padding-bottom: 0.2rem;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-color: var(--green);
+      color: var(--green-dark);
+    }
+
+    .nav-cta {
+      padding: 0.6rem 1.4rem;
+      background: linear-gradient(135deg, var(--cta-start), var(--cta-end));
+      color: #fff;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 500;
+      box-shadow: 0 14px 32px rgba(248, 181, 0, 0.4);
+      white-space: nowrap;
+    }
+
+    /* HERO */
+    .hero {
+      padding-top: 4.5rem;
+      padding-bottom: 4.8rem;
+      background: var(--cream);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.05fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-left {
+      max-width: 540px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      padding: 0.22rem 0.9rem;
+      background: #ecfdf5;
+      color: var(--green-dark);
+      border-radius: 999px;
+      border: 1px solid #bbf7d0;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-badge span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--green);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 4.2vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 0.7rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero h1 span {
+      color: var(--green);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+      margin-bottom: 1.6rem;
+      font-size: 0.82rem;
+    }
+
+    .hero-trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: #ecfdf5;
+      border: 1px solid #bbf7d0;
+      color: var(--green-dark);
+      font-weight: 500;
+    }
+
+    .hero-trust-badge span.icon {
+      font-size: 0.95rem;
+    }
+
+    .hero-trust-copy {
+      color: var(--text-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      padding: 0.9rem 1.8rem;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cta-start), var(--cta-end));
+      color: white;
+      box-shadow: 0 18px 40px rgba(248, 181, 0, 0.46);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 46px rgba(248, 181, 0, 0.56);
+    }
+
+    .btn-ghost {
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      color: var(--text-main);
+    }
+
+    .hero-actions .btn-ghost::before {
+      content: "▶";
+      font-size: 0.65rem;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .hero-metric span {
+      display: block;
+      font-weight: 600;
+      color: var(--green-dark);
+      font-size: 1.05rem;
+    }
+
+    /* PHONE MOCK */
+    .hero-right {
+      display: flex;
+      justify-content: center;
+    }
+
+    .phone-shell {
+      width: 290px;
+      background: #f4f4f2;
+      border-radius: 2.2rem;
+      padding: 0.4rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      position: relative;
+    }
+
+    .phone-shell::before {
+      content: "";
+      position: absolute;
+      top: 0.45rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 32%;
+      height: 5px;
+      border-radius: 999px;
+      background: #d4d4cf;
+    }
+
+    .phone-screen {
+      background: #ffffff;
+      border-radius: 1.8rem;
+      padding: 1.1rem 1.1rem 1rem;
+      overflow: hidden;
+    }
+
+    .phone-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .phone-header-title {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .phone-dot-group {
+      display: flex;
+      gap: 0.12rem;
+    }
+
+    .phone-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 999px;
+      background: #d1d5db;
+    }
+
+    .phone-section-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .meal-card {
+      border-radius: 1rem;
+      padding: 0.55rem 0.55rem;
+      background: #f9fafb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .meal-main {
+      display: flex;
+      flex-direction: column;
+      gap: 0.08rem;
+    }
+
+    .meal-name {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .meal-tags {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .meal-bubble {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #a7f3d0, #4ade80);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      color: #065f46;
+      flex-shrink: 0;
+      box-shadow: 0 6px 14px rgba(34, 197, 94, 0.35);
+    }
+
+    .phone-divider {
+      height: 1px;
+      background: #e5e7eb;
+      margin: 0.65rem 0;
+    }
+
+    .shopping-list {
+      margin-top: 0.1rem;
+    }
+
+    .shopping-item {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.78rem;
+      color: var(--text-main);
+      margin-bottom: 0.28rem;
+    }
+
+    .shopping-checkbox {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      border: 1px solid #d1d5db;
+    }
+
+    .shopping-checkbox.filled {
+      background: #22c55e;
+      border-color: #22c55e;
+    }
+
+    .phone-footer-badge {
+      margin-top: 0.55rem;
+      font-size: 0.72rem;
+      padding: 0.45rem 0.5rem;
+      border-radius: 0.85rem;
+      background: #ecfdf5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--green-dark);
+    }
+
+    .phone-footer-badge span.value {
+      font-weight: 600;
+    }
+
+    .phone-footer-badge span.label {
+      color: var(--text-muted);
+      font-size: 0.7rem;
+    }
+
+    /* GRID UTILITIES */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.6rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 1.6rem 1.5rem;
+      box-shadow: 0 18px 46px rgba(148, 163, 184, 0.22);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.6rem;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+    }
+
+    /* HOW IT WORKS – condensed 3 steps */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+
+    .step {
+      background: white;
+      border-radius: 1.3rem;
+      padding: 1rem;
+      box-shadow: 0 16px 40px rgba(148, 163, 184, 0.22);
+      font-size: 0.9rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .step-number {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .step-title {
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .feature {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.3rem 1.5rem;
+      box-shadow: 0 18px 48px rgba(148, 163, 184, 0.22);
+      border-top: 4px solid var(--green);
+      border-inline: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.94rem;
+    }
+
+    .feature h3 {
+      font-size: 1.02rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-tag {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 0.55rem;
+    }
+
+    ul li span.icon {
+      margin-top: 0.15rem;
+      font-size: 1rem;
+    }
+
+    /* Lifestyles / segmented benefits */
+    .lifestyles {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .lifestyle {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: 0 18px 46px rgba(148, 163, 184, 0.22);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.94rem;
+    }
+
+    .lifestyle h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .lifestyle p {
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    /* Impact */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+      margin-top: 1.4rem;
+    }
+
+    .impact-card {
+      background: #ecfdf5;
+      border-radius: 1.2rem;
+      padding: 1rem 1rem 1.1rem;
+      border: 1px dashed #6ee7b7;
+      font-size: 0.9rem;
+    }
+
+    .impact-number {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 0.15rem;
+    }
+
+    .impact-label {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    /* FAQ */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.6rem;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 1.1rem;
+      padding: 1rem 1.1rem;
+      box-shadow: 0 16px 40px rgba(148, 163, 184, 0.22);
+      font-size: 0.93rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .faq-item h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.35rem;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+      margin-top: 1.7rem;
+    }
+
+    .testimonial {
+      background: white;
+      border-radius: 1.4rem;
+      padding: 1.4rem 1.3rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 18px 48px rgba(148, 163, 184, 0.16);
+      font-size: 0.9rem;
+    }
+
+    .testimonial-quote {
+      font-style: italic;
+      color: var(--text-main);
+      margin-bottom: 0.8rem;
+    }
+
+    .testimonial-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .testimonials-title {
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--green-dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .testimonials-subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+    }
+
+    /* Demo video */
+    .demo-wrapper {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .demo-video {
+      background: #000;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      position: relative;
+      min-height: 220px;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+    }
+
+    .demo-video::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(22, 163, 74, 0.4), transparent);
+    }
+
+    .demo-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      color: #fff;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .demo-play-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 999px;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    /* Interactive preview */
+    .preview-card {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 1.4rem 1.3rem;
+      box-shadow: 0 18px 48px rgba(148, 163, 184, 0.32);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.9rem;
+    }
+
+    .preview-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+
+    .preview-form label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .preview-form select {
+      padding: 0.4rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 0.85rem;
+      background: #f9fafb;
+    }
+
+    .preview-output {
+      border-radius: 1rem;
+      background: #f9fafb;
+      padding: 0.9rem;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+
+    .preview-output-title {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .preview-output-empty {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* AI transparency */
+    .ai-transparency {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.8rem;
+      margin-top: 1.8rem;
+    }
+
+    .ai-points {
+      display: grid;
+      gap: 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    .ai-point {
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+
+    .ai-point-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .ai-point-title {
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+
+    .ai-badge {
+      background: #ecfdf5;
+      color: #0f172a;
+      border-radius: 1.6rem;
+      padding: 1.2rem 1.4rem;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 420px;
+      border: 1px solid #bbf7d0;
+      box-shadow: 0 18px 40px rgba(34, 197, 94, 0.22);
+    }
+
+    .ai-badge-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      border: 2px solid #bbf7d0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 30%, #bbf7d0, #ecfdf5);
+      flex-shrink: 0;
+    }
+
+    .ai-badge-avatar {
+      font-size: 2rem;
+    }
+
+    .ai-badge-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .ai-badge-text span.label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
+      color: #6b7280;
+    }
+
+    .ai-badge-text span {
+      line-height: 1.5;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 3.5rem 0 5.5rem;
+    }
+
+    .cta-inner {
+      background: linear-gradient(120deg, #16a34a, #047857);
+      border-radius: 2rem;
+      padding: 2.4rem 2rem 2.6rem;
+      color: white;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-inner h2 {
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-inner p {
+      max-width: 540px;
+      margin: 0 auto 1.2rem;
+      font-size: 0.96rem;
+    }
+
+    .cta-incentive {
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 118, 110, 0.35);
+    }
+
+    .cta-form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.7rem;
+      margin-top: 0.6rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .cta-form input {
+      padding: 0.75rem 0.9rem;
+      border-radius: 999px;
+      border: none;
+      min-width: 220px;
+      font-size: 0.9rem;
+    }
+
+    .cta-form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .social-logins {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      justify-content: center;
+      margin-top: 0.3rem;
+      font-size: 0.8rem;
+      align-items: center;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      background: #f9fafb;
+      border: 1px solid rgba(249, 250, 251, 0.8);
+      cursor: pointer;
+      color: #111827;
+    }
+
+    .social-btn-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .social-btn-google {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+    }
+
+    .social-btn-google span {
+      font-weight: 700;
+      color: #4285f4;
+      font-size: 0.8rem;
+      line-height: 1;
+    }
+
+    .social-btn-apple {
+      background: #111827;
+    }
+
+    .social-btn-apple span {
+      color: #ffffff;
+      font-size: 0.9rem;
+      line-height: 1;
+    }
+
+    .cta-hint {
+      font-size: 0.78rem;
+      opacity: 0.9;
+      margin-top: 0.6rem;
+    }
+
+    footer {
+      padding: 1.5rem 0 2rem;
+      border-top: 1px solid #e5e7eb;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: #f9fafb;
+    }
+
+    footer .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Sticky CTA */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      border-top: 1px solid #e5e7eb;
+      box-shadow: 0 -12px 30px rgba(15, 23, 42, 0.12);
+      z-index: 30;
+    }
+
+    .sticky-cta-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.9rem;
+      font-size: 0.86rem;
+    }
+
+    .sticky-cta-text strong {
+      color: var(--green-dark);
+    }
+
+    .sticky-cta-sub {
+      color: var(--text-muted);
+    }
+
+    .sticky-cta-btn {
+      display: inline-flex;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .impact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .demo-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .ai-transparency {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .sticky-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .sticky-cta-btn {
+        width: 100%;
+        justify-content: stretch;
+      }
+
+      .sticky-cta-btn .btn-primary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 3.4rem;
+      }
+
+      .hero-left {
+        max-width: 100%;
+      }
+
+      .grid-3,
+      .steps,
+      .features,
+      .lifestyles,
+      .impact-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .phone-shell {
+        width: 260px;
+      }
+
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (e) => {
+          const target = document.querySelector(link.getAttribute("href"));
+          if (!target) return;
+          e.preventDefault();
+          window.scrollTo({
+            top: target.offsetTop - 72,
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Interactive mini preview
+      const previewBtn = document.getElementById("preview-generate");
+      const previewOutput = document.getElementById("preview-output");
+      if (previewBtn && previewOutput) {
+        previewBtn.addEventListener("click", () => {
+          const meals = document.getElementById("preview-meals").value;
+          const household = document.getElementById("preview-household").value;
+
+          const templates = [
+            { name: "Veggie stir-fry", tags: "Balanced • 20 min • Budget" },
+            { name: "Chickpea salad", tags: "High protein • Cold lunch" },
+            { name: "Tomato soup & toast", tags: "Comfort • Family" },
+            { name: "One-pan roasted chicken & veggies", tags: "Family • 30 min" },
+            { name: "Pasta primavera", tags: "Seasonal • 25 min" },
+          ];
+
+          const count = Math.min(parseInt(meals, 10), templates.length);
+          const selected = templates.slice(0, count);
+
+          previewOutput.innerHTML = `
+            <div class="preview-output-title">Sample weekly plan for ${household} household</div>
+          `;
+
+          selected.forEach((meal, index) => {
+            const row = document.createElement("div");
+            row.className = "meal-card";
+            row.style.marginBottom = "0.4rem";
+            row.innerHTML = `
+              <div class="meal-main">
+                <div class="meal-name">Day ${index + 1} • ${meal.name}</div>
+                <div class="meal-tags">${meal.tags}</div>
+              </div>
+              <div class="meal-bubble">🍽️</div>
+            `;
+            previewOutput.appendChild(row);
+          });
+
+          const hint = document.createElement("p");
+          hint.style.marginTop = "0.5rem";
+          hint.style.fontSize = "0.8rem";
+          hint.style.color = "#6b7280";
+          hint.textContent =
+            "In the real app, GreenMeal uses your budget, preferences and current offers to generate a full plan like this in a few seconds.";
+          previewOutput.appendChild(hint);
+        });
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <!-- NAV -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <img
+          src="https://assets.stickpng.com/images/5a0c72729642de34b6b65ce7.png"
+          alt="Carrefour logo"
+          class="logo-img"
+        />
+        <span>GreenMeal</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#why">Why GreenMeal</a>
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#social-proof">Results</a>
+        <a href="#impact">Your impact</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#cta" class="nav-cta">Generate your first AI meal plan</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          <span>New from Carrefour</span>
+          <span>• Smart, sustainable grocery planning</span>
+        </div>
+
+        <h1>
+          Plan 7 meals in 7 seconds<br />
+          <span>with AI + automatic shopping list.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Generate a full weekly plan, get a smart shopping list and save up to
+          €400/year effortlessly – right inside your Carrefour app.
+        </p>
+
+        <div class="hero-trust">
+          <div class="hero-trust-badge">
+            <span class="icon">✓</span>
+            <span>AI verified by Carrefour nutrition experts</span>
+          </div>
+          <div class="hero-trust-copy">
+            No fad diets. Just balanced, family-friendly meals you can trust.
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#cta" class="btn-primary">Generate your first AI meal plan now</a>
+          <a href="#how" class="btn-ghost">See how it works</a>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="hero-metric">
+            <span>+3 hours</span>
+            saved every week on planning, list-making and shopping.
+          </div>
+          <div class="hero-metric">
+            <span>Up to 30%</span>
+            less food waste thanks to smart expiry alerts and recipes.
+          </div>
+          <div class="hero-metric">
+            <span>Up to €400/year</span>
+            saved by planning ahead and shopping smarter with GreenMeal.
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="true">
+        <div class="phone-shell">
+          <div class="phone-screen">
+            <div class="phone-header">
+              <div class="phone-header-title">Weekly meals</div>
+              <div class="phone-dot-group">
+                <div class="phone-dot"></div>
+                <div class="phone-dot"></div>
+                <div class="phone-dot"></div>
+              </div>
+            </div>
+
+            <div class="phone-section-title">This week</div>
+
+            <div class="meal-card">
+              <div class="meal-main">
+                <div class="meal-name">Veggie stir-fry</div>
+                <div class="meal-tags">Balanced • 20 min • Budget</div>
+              </div>
+              <div class="meal-bubble">🥦</div>
+            </div>
+
+            <div class="meal-card">
+              <div class="meal-main">
+                <div class="meal-name">Chickpea salad</div>
+                <div class="meal-tags">High protein • Cold lunch</div>
+              </div>
+              <div class="meal-bubble">🥗</div>
+            </div>
+
+            <div class="meal-card">
+              <div class="meal-main">
+                <div class="meal-name">Tomato soup &amp; toast</div>
+                <div class="meal-tags">Comfort • Family</div>
+              </div>
+              <div class="meal-bubble">🍲</div>
+            </div>
+
+            <div class="phone-divider"></div>
+
+            <div class="phone-section-title">Shopping list</div>
+            <div class="shopping-list">
+              <div class="shopping-item">
+                <div class="shopping-checkbox filled"></div>
+                <span>Carrots</span>
+              </div>
+              <div class="shopping-item">
+                <div class="shopping-checkbox filled"></div>
+                <span>Tomatoes</span>
+              </div>
+              <div class="shopping-item">
+                <div class="shopping-checkbox"></div>
+                <span>Wholegrain pasta</span>
+              </div>
+            </div>
+
+            <div class="phone-footer-badge">
+              <span class="value">+3 h / week</span>
+              <span class="label">up to 30% less food waste</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section id="why">
+    <div class="container">
+      <h2>Why budget-smart families love GreenMeal</h2>
+      <p class="lead">
+        GreenMeal is made for busy households who want to eat well, spend less and cut food waste – without spending hours planning.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon">💶</div>
+          <h3>Control your budget</h3>
+          <p>
+            See the cost of your basket before you go, get smart swaps and
+            offers adapted to your usual Carrefour store. Save up to €400/year
+            just by planning smarter.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🥗</div>
+          <h3>Eat healthier automatically</h3>
+          <p>
+            Tell us your goals (balanced diet, low salt, vegetarian, etc.) and
+            GreenMeal creates tasty menus with Carrefour products that match
+            your needs – without you counting anything.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🌍</div>
+          <h3>Waste less, feel better</h3>
+          <p>
+            Get expiry alerts, “empty the fridge” recipes and clear eco-labels
+            so you waste less food and reduce your footprint without extra
+            mental load.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="container">
+      <h2>How it works</h2>
+      <p class="lead">
+        In just three simple steps, you go from “What do we eat this week?” to a smart basket ready to check out.
+      </p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">Step 1</div>
+          <div class="step-title">Tell us who you are</div>
+          <p>
+            Choose your household size, budget sensitivity, food preferences and
+            goals. You can update them anytime as your life changes.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">Step 2</div>
+          <div class="step-title">Plan 7 meals in 7 seconds</div>
+          <p>
+            GreenMeal’s AI builds a full weekly plan and automatic shopping list
+            with Carrefour products, optimized for your budget and preferences.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">Step 3</div>
+          <div class="step-title">Shop smarter & track savings</div>
+          <p>
+            Use your list in-store or online, get expiry alerts and see how much
+            money and food you’ve saved over time in your impact dashboard.
+          </p>
+        </div>
+      </div>
+
+      <!-- DEMO + INTERACTIVE PREVIEW -->
+      <div class="demo-wrapper">
+        <div class="demo-video">
+          <div class="demo-play">
+            <div class="demo-play-icon">▶</div>
+            <div>Watch a 40-second demo of a weekly plan generated in real time.</div>
+          </div>
+        </div>
+        <div class="preview-card">
+          <h3 style="margin-bottom:0.4rem;">Try a sample weekly plan</h3>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:0.9rem;">
+            Choose your household and number of dinners. We’ll generate a fake AI plan preview so you can see how it feels.
+          </p>
+          <div class="preview-form">
+            <label for="preview-household">
+              Household
+              <select id="preview-household">
+                <option value="2-person">2-person</option>
+                <option value="family of 3">Family of 3</option>
+                <option value="family of 4">Family of 4</option>
+                <option value="family of 5+">Family of 5+</option>
+              </select>
+            </label>
+            <label for="preview-meals">
+              Dinners to plan
+              <select id="preview-meals">
+                <option value="3">3</option>
+                <option value="5" selected>5</option>
+                <option value="7">7</option>
+              </select>
+            </label>
+            <button class="btn-primary" type="button" id="preview-generate">
+              Generate sample plan
+            </button>
+          </div>
+          <div class="preview-output" id="preview-output">
+            <div class="preview-output-title">Sample plan preview</div>
+            <p class="preview-output-empty">
+              You’ll see 3–7 example dinners here once you click “Generate sample plan”.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="container">
+      <h2>Smart tools inside your Carrefour app</h2>
+
+      <div class="features">
+        <article class="feature">
+          <div class="feature-tag">Core feature</div>
+          <h3>AI Meal Planner</h3>
+          <p>
+            A virtual coach that plans breakfasts, lunches and dinners for the
+            week, with recipes tailored to your lifestyle, culture and schedule.
+          </p>
+          <ul>
+            <li><span class="icon">📅</span><span>Weekly menus ready in seconds.</span></li>
+            <li><span class="icon">🥬</span><span>Automatically balanced in nutrients.</span></li>
+            <li><span class="icon">🔄</span><span>Swap meals or ingredients with one tap.</span></li>
+          </ul>
+        </article>
+
+        <article class="feature">
+          <div class="feature-tag">Rewards</div>
+          <h3>EcoPoints & progress bar</h3>
+          <p>
+            Earn EcoPoints every time you choose seasonal, local or low-impact
+            products and when you avoid food waste at home – and follow your
+            progress toward the next reward.
+          </p>
+          <ul>
+            <li><span class="icon">🌱</span><span>Points for greener choices and anti-waste actions.</span></li>
+            <li><span class="icon">📊</span><span>Progress bar shows how close you are to your next reward.</span></li>
+            <li><span class="icon">🎁</span><span>Redeem for discounts and surprises chosen for you.</span></li>
+          </ul>
+        </article>
+
+        <article class="feature">
+          <div class="feature-tag">Zero waste</div>
+          <h3>Anti-Waste Kitchen</h3>
+          <p>
+            Connect your digital receipts and let GreenMeal suggest recipes
+            before products reach their expiry date – with difficulty labels for
+            quick choices.
+          </p>
+          <ul>
+            <li><span class="icon">⏰</span><span>Grouped alerts like “3 items expiring soon”.</span></li>
+            <li><span class="icon">🍲</span><span>Creative “empty the fridge” recipes with photos.</span></li>
+            <li><span class="icon">⭐</span><span>Easy • 20 min labels reduce decision fatigue.</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF / LIFESTYLES -->
+  <section id="social-proof">
+    <div class="container">
+      <h2>Made for real life, not perfection</h2>
+      <p class="lead">
+        Whether you cook every day or only a few times a week, GreenMeal adapts to your rhythm, your family and your budget.
+      </p>
+
+      <div class="lifestyles">
+        <article class="lifestyle">
+          <h3>“We need dinners everyone will actually eat.”</h3>
+          <p>
+            Plan a full week for your family in one go. GreenMeal balances
+            veggies and favourites, and turns leftovers into new meals so less
+            food ends up in the bin.
+          </p>
+          <ul>
+            <li><span class="icon">🍽️</span><span>Family-friendly dishes and portions for all ages.</span></li>
+            <li><span class="icon">🔔</span><span>Reminders to use food before it goes off.</span></li>
+            <li><span class="icon">🌍</span><span>Kids can see how their choices help the planet.</span></li>
+          </ul>
+        </article>
+
+        <article class="lifestyle">
+          <h3>“I want quick meals that don’t blow my budget.”</h3>
+          <p>
+            You come home late and don’t want to scroll recipes for an hour.
+            GreenMeal suggests quick dinners with everything on a ready-to-shop
+            list in your Carrefour app.
+          </p>
+          <ul>
+            <li><span class="icon">⚡</span><span>Fast recipes with few, affordable ingredients.</span></li>
+            <li><span class="icon">🧺</span><span>Shopping list sorted by aisle or by “Smart budget priority”.</span></li>
+            <li><span class="icon">💳</span><span>Automatic budget-friendly swaps when prices change.</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Testimonials -->
+      <div style="margin-top:2.2rem;">
+        <h3 class="testimonials-title">What GreenMeal users say</h3>
+        <p class="testimonials-subtitle">
+          Real feedback from early testers who used GreenMeal to plan their weekly meals.
+        </p>
+
+        <div class="testimonials">
+          <div class="testimonial">
+            <div class="testimonial-quote">
+              “We saved around €25/week and stopped throwing away yoghurts and veggies we forgot about.”
+            </div>
+            <div class="testimonial-meta">
+              Amélie, 2 kids – GreenMeal beta tester
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-quote">
+              “Planning 5 dinners now takes 30 seconds instead of 30 minutes. The list is ready in the Carrefour app.”
+            </div>
+            <div class="testimonial-meta">
+              Karim, 34 – uses GreenMeal for after-work dinners
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-quote">
+              “I finally see on one screen how many kilos of food and euros we save each month. It’s very motivating.”
+            </div>
+            <div class="testimonial-meta">
+              Julie &amp; Maxime – early adopters
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section id="impact">
+    <div class="container">
+      <h2>Your impact, made visible</h2>
+      <p class="lead">
+        GreenMeal turns everyday choices into concrete results you can follow on
+        your dashboard.
+      </p>
+
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-number">12 kg</div>
+          <div class="impact-label">Food saved / year</div>
+          <p>
+            Based on a typical family who cooks 4–5 dinners a week using
+            GreenMeal anti-waste recipes and expiry alerts.
+          </p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-number">Up to 400 €</div>
+          <div class="impact-label">Annual savings</div>
+          <p>
+            Thanks to fewer impulse buys, smarter use of leftovers and offers
+            selected according to your usual basket.
+          </p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-number">100%</div>
+          <div class="impact-label">Transparency</div>
+          <p>
+            See nutrition information, origin and eco-indicators for suggested
+            products so you always know what you’re buying.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI TRANSPARENCY MODULE -->
+  <section>
+    <div class="container">
+      <h2>How our AI builds your plan</h2>
+      <p class="lead">
+        We believe you should always understand how your recommendations are generated, especially when it comes to food, health and budget.
+      </p>
+
+      <div class="ai-transparency">
+        <div class="ai-points">
+          <div class="ai-point">
+            <div class="ai-point-icon">🧠</div>
+            <div>
+              <div class="ai-point-title">Your data, your rules</div>
+              <div>
+                You can choose what you share: household size, allergies,
+                dietary patterns, budget sensitivity… and edit or delete them at
+                any time in the Carrefour app.
+              </div>
+            </div>
+          </div>
+          <div class="ai-point">
+            <div class="ai-point-icon">📊</div>
+            <div>
+              <div class="ai-point-title">Balanced by design</div>
+              <div>
+                The AI is trained with guidelines from Carrefour nutrition
+                experts. It checks for variety, seasonality and nutritional
+                balance before suggesting a plan.
+              </div>
+            </div>
+          </div>
+          <div class="ai-point">
+            <div class="ai-point-icon">🔍</div>
+            <div>
+              <div class="ai-point-title">Full transparency</div>
+              <div>
+                For each suggested product, you see ingredients, nutrition,
+                origin and eco-score so you can always understand and adjust
+                your basket.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ai-badge">
+          <div class="ai-badge-photo" aria-hidden="true">
+            <span class="ai-badge-avatar">👩‍⚕️</span>
+          </div>
+          <div class="ai-badge-text">
+            <span class="label">Trusted AI</span>
+            <span>
+              GreenMeal’s AI recommendations are reviewed and validated by Carrefour nutrition
+              experts and updated regularly as science and products evolve.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2>Frequently asked questions</h2>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Is GreenMeal a separate app?</h3>
+          <p>
+            No. GreenMeal is a new service inside the existing Carrefour app.
+            You’ll find it on the home screen once it’s available in your area.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>Do I have to follow the plan exactly?</h3>
+          <p>
+            Not at all. You can swap meals, remove ingredients you don’t like
+            and add your own recipes. GreenMeal adapts in real time.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>What about my data?</h3>
+          <p>
+            Your profile and preferences are used only to personalise your
+            experience in the Carrefour app. You stay in control and can edit or
+            delete them at any time.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>Is it only for vegetarians or “healthy” people?</h3>
+          <p>
+            No. GreenMeal is for everyone: students, families, flexitarians,
+            meat-lovers and people just starting to eat more sustainably. You
+            set the rules.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="cta">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-incentive">
+          <span>🌱</span>
+          <span>+50 EcoPoints when you create your first meal plan</span>
+        </div>
+        <h2>Generate your first AI meal plan now</h2>
+        <p>
+          GreenMeal is rolling out in selected Carrefour stores and online.
+          Leave your email to get a link to create your first plan in the
+          Carrefour app, plus tips to save more every week.
+        </p>
+
+        <form
+          class="cta-form cta-form-row"
+          onsubmit="event.preventDefault(); alert('Thank you! In a real launch, this would send your email to Carrefour.');"
+        >
+          <div class="cta-form">
+            <input type="email" placeholder="Enter your email" required />
+            <button class="btn-primary" type="submit">
+              Generate my first AI meal plan
+            </button>
+          </div>
+          <div class="social-logins">
+            <span>or continue with</span>
+            <button class="social-btn" type="button">
+              <span class="social-btn-icon social-btn-google" aria-hidden="true">
+                <span>G</span>
+              </span>
+              <span>Google</span>
+            </button>
+            <button class="social-btn" type="button">
+              <span class="social-btn-icon social-btn-apple" aria-hidden="true">
+                <span></span>
+              </span>
+              <span>Apple</span>
+            </button>
+          </div>
+        </form>
+        <div class="cta-hint">
+          You can unsubscribe at any time. For this academic project, the form
+          is only a demo – no real data is stored.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-row">
+      <div>© 2024 Carrefour – GreenMeal (concept for academic project).</div>
+      <div><a href="#why">Back to top</a></div>
+    </div>
+  </footer>
+
+  <!-- STICKY CTA -->
+  <div class="sticky-cta">
+    <div class="sticky-cta-inner">
+      <div class="sticky-cta-text">
+        <strong>Plan 7 meals in 7 seconds.</strong>
+        <div class="sticky-cta-sub">Save time, money and food with Carrefour GreenMeal.</div>
+      </div>
+      <div class="sticky-cta-btn">
+        <a href="#cta" class="btn-primary">Generate your first AI meal plan now</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
